@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import { ListItem, ListItemText } from "@material-ui/core";
 
 export default class TodoElement extends Component {
   render() {
     return (
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
+      <ListItem>
+        <ListItemText primary="todo" />
+      </ListItem>
     );
   }
 }
