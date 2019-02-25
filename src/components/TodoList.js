@@ -13,8 +13,9 @@ export default class TodoList extends Component {
       <Grid container justify="center">
         <Paper>
           <List>
-            <TodoElement text="todo1" />
-            <TodoElement text="todo2" />
+            {items.map(item => (
+              <TodoElement key={item.id} text={item.text} />
+            ))}
           </List>
         </Paper>
       </Grid>
