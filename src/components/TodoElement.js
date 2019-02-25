@@ -6,7 +6,7 @@ export default class TodoElement extends Component {
   render() {
     return (
       <ListItem>
-        <ListItemText primary="todo" />
+        <ListItemText primary={this.props.text} />
       </ListItem>
     );
   }
