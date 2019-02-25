@@ -1,17 +1,31 @@
 import React, { Component } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
+import Axios from "axios";
 
 class App extends Component {
-  render() {
-    const items = [
-      { id: 1, text: "Learn React" },
-      { id: 2, text: "Go to sleep early" }
-    ];
+  constructor(props) {
+    super(props);
+    this.state = { items: [] };
+  }
 
+  componentDidMount() {
+    Axios.get("http://localhost:3001/todos").then(
+      response => {
+        this.setState({
+          items: response.data
+        });
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  render() {
     return (
       <div className="App">
-        <TodoList items={items} />
+        <TodoList items={this.state.items} />
       </div>
     );
   }
