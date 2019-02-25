@@ -23,9 +23,12 @@ class App extends Component {
   }
 
   render() {
+    const todoItems = this.state.items.filter(item => {
+      return item.done === false;
+    });
     return (
       <div className="App">
-        <TodoList items={this.state.items} />
+        <TodoList items={todoItems} />
       </div>
     );
   }
