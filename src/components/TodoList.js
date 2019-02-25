@@ -6,7 +6,7 @@ export default class TodoList extends Component {
   render() {
     return (
       <Grid container justify="center">
-        <Paper>
+        <Paper className="content__todo-list">
           <List>
             {this.props.items.map(item => (
               <TodoElement key={item.id} text={item.text} />

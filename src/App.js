@@ -3,6 +3,7 @@ import "./App.css";
 import TodoList from "./components/TodoList";
 import Axios from "axios";
 import { partition } from "lodash";
+import { Grid } from "@material-ui/core";
 
 class App extends Component {
   constructor(props) {
@@ -33,8 +34,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <TodoList items={todoItems} />
-        <TodoList items={doneItems} />
+        <Grid container justify="center" spacing={24} className="content">
+          <Grid item>
+            <TodoList items={todoItems} />
+          </Grid>
+          <Grid item>
+            <TodoList items={doneItems} />
+          </Grid>
+        </Grid>
       </div>
     );
   }
