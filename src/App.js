@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 import Axios from "axios";
 import { partition } from "lodash";
 import { Grid } from "@material-ui/core";
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -14,9 +15,14 @@ class App extends Component {
   componentDidMount() {
     Axios.get("http://localhost:3001/todos").then(
       response => {
-        this.setState({
-          items: response.data
-        });
+        // this.setState({
+        //   items: response.data
+        // });
+        const action = {
+          type: "CREATE_TODOS",
+          todos: response.data
+        };
+        this.props.dispatch(action);
       },
       error => {
         console.log(error);
@@ -25,7 +31,7 @@ class App extends Component {
   }
 
   render() {
-    const [todoItems, doneItems] = partition(this.state.items, item => {
+    const [todoItems, doneItems] = partition(this.props.items, item => {
       return item.done === false;
     });
 
@@ -52,4 +58,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    items: state.todos
+  };
+}
+
+export default connect(mapStateToProps)(App);

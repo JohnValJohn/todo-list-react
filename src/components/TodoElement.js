@@ -5,14 +5,19 @@ import {
   ListItemSecondaryAction,
   Button
 } from "@material-ui/core";
+import { connect } from "react-redux";
 
-export default class TodoElement extends Component {
+class TodoElement extends Component {
   constructor(props) {
     super(props);
     this.handleClickOnDone = this.handleClickOnDone.bind(this);
   }
   handleClickOnDone() {
-    console.log("you clicked on done" + this.props.item.id);
+    const action = {
+      type: "UPDATE_TODOS",
+      changedItem: this.props.item
+    };
+    this.props.dispatch(action);
   }
 
   render() {
@@ -32,3 +37,4 @@ export default class TodoElement extends Component {
     );
   }
 }
+export default connect()(TodoElement);
