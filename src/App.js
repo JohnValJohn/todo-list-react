@@ -36,10 +36,10 @@ class App extends Component {
       <div className="App">
         <Grid container justify="center" spacing={24} className="content">
           <Grid item>
-            <TodoList items={todoItems} />
+            <TodoList items={todoItems} title="To do" />
           </Grid>
           <Grid item>
-            <TodoList items={doneItems} />
+            <TodoList items={doneItems} title="Done" />
           </Grid>
         </Grid>
       </div>
