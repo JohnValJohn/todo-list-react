@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import { updateTodos } from "../actions/actionCreators";
+import PropTypes from "prop-types";
 
 class TodoElement extends Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class TodoElement extends Component {
     this.handleClickOnDone = this.handleClickOnDone.bind(this);
   }
   handleClickOnDone() {
-    const action = updateTodos(this.props.item);
-    this.props.dispatch(action);
+    this.props.updateTodos(this.props.item);
   }
 
   render() {
@@ -23,16 +23,21 @@ class TodoElement extends Component {
       <ListItem>
         <ListItemText primary={this.props.item.text} />
         <ListItemSecondaryAction>
-          {this.props.canHaveDoneButton ? (
+          {this.props.canHaveDoneButton && (
             <Button variant="outlined" onClick={this.handleClickOnDone}>
               Done
             </Button>
-          ) : (
-            <span />
           )}
         </ListItemSecondaryAction>
       </ListItem>
     );
   }
 }
-export default connect()(TodoElement);
+TodoElement.propTypes = {
+  canHaveDoneButton: PropTypes.bool,
+  item: PropTypes.object
+};
+export default connect(
+  undefined,
+  { updateTodos }
+)(TodoElement);

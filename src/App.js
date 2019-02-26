@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "./App.css";
 import TodoList from "./components/TodoList";
 import Axios from "axios";
 import { partition } from "lodash";
 import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
 import { createTodos } from "./actions/actionCreators";
+import PropTypes from "prop-types";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -16,8 +17,8 @@ class App extends Component {
   componentDidMount() {
     Axios.get("http://localhost:3001/todos").then(
       response => {
-        const action = createTodos(response.data);
-        this.props.dispatch(action);
+        this.props.createTodos(response.data);
+        // this.props.dispatch(action);
       },
       error => {
         console.log(error);
@@ -59,4 +60,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+App.propTypes = {
+  items: PropTypes.array
+};
+
+export default connect(
+  mapStateToProps,
+  { createTodos }
+)(App);

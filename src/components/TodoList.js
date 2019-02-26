@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import TodoElement from "./TodoElement";
 import { List, Grid, Card, CardHeader, CardContent } from "@material-ui/core";
+import PropTypes from "prop-types";
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   render() {
     return (
       <Grid container justify="center">
@@ -24,3 +25,10 @@ export default class TodoList extends Component {
     );
   }
 }
+
+TodoList.propTypes = {
+  items: PropTypes.array,
+  title: PropTypes.string
+};
+
+export default TodoList;
