@@ -1,7 +1,9 @@
 import * as types from "./actionsTypes";
 
 export function updateTodos(changedItem) {
-  return { type: types.UPDATE_TODOS, changedItem };
+  return function(dispatch) {
+    dispatch({ type: types.UPDATE_TODOS, changedItem });
+  };
 }
 
 export function createTodos(todos) {
