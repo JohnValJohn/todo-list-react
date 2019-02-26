@@ -29,17 +29,22 @@ class App extends Component {
       return item.done === false;
     });
 
-    console.log(todoItems);
-    console.log(doneItems);
-
     return (
       <div className="App">
         <Grid container justify="center" spacing={24} className="content">
           <Grid item>
-            <TodoList items={todoItems} title="To do" />
+            <TodoList
+              items={todoItems}
+              title="To do"
+              canHaveDoneButton={true}
+            />
           </Grid>
           <Grid item>
-            <TodoList items={doneItems} title="Done" />
+            <TodoList
+              items={doneItems}
+              title="Done"
+              canHaveDoneButton={false}
+            />
           </Grid>
         </Grid>
       </div>

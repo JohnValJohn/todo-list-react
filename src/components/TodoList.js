@@ -18,13 +18,15 @@ export default class TodoList extends Component {
           <CardContent>
             <List>
               {this.props.items.map(item => (
-                <TodoElement key={item.id} text={item.text} />
+                <TodoElement
+                  key={item.id}
+                  text={item.text}
+                  canHaveDoneButton={this.props.canHaveDoneButton}
+                />
               ))}
             </List>
           </CardContent>
         </Card>
-
-        {/* </Paper> */}
       </Grid>
     );
   }
