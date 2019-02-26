@@ -6,6 +6,7 @@ import {
   Button
 } from "@material-ui/core";
 import { connect } from "react-redux";
+import * as types from "../actions/actionsTypes";
 
 class TodoElement extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class TodoElement extends Component {
   }
   handleClickOnDone() {
     const action = {
-      type: "UPDATE_TODOS",
+      type: types.UPDATE_TODOS,
       changedItem: this.props.item
     };
     this.props.dispatch(action);
