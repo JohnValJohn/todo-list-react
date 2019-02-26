@@ -5,7 +5,7 @@ import Axios from "axios";
 import { partition } from "lodash";
 import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
-import * as types from "./actions/actionsTypes";
+import { createTodos } from "./actions/actionCreators";
 
 class App extends Component {
   constructor(props) {
@@ -16,10 +16,7 @@ class App extends Component {
   componentDidMount() {
     Axios.get("http://localhost:3001/todos").then(
       response => {
-        const action = {
-          type: types.CREATE_TODOS,
-          todos: response.data
-        };
+        const action = createTodos(response.data);
         this.props.dispatch(action);
       },
       error => {
