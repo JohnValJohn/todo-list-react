@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import TodoElement from "./TodoElement";
-import {
-  List,
-  Paper,
-  Grid,
-  Card,
-  CardHeader,
-  CardContent
-} from "@material-ui/core";
+import { List, Grid, Card, CardHeader, CardContent } from "@material-ui/core";
 
 export default class TodoList extends Component {
   render() {
@@ -20,7 +13,7 @@ export default class TodoList extends Component {
               {this.props.items.map(item => (
                 <TodoElement
                   key={item.id}
-                  text={item.text}
+                  item={item}
                   canHaveDoneButton={this.props.canHaveDoneButton}
                 />
               ))}
