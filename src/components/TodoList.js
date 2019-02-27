@@ -6,22 +6,20 @@ import PropTypes from "prop-types";
 class TodoList extends Component {
   render() {
     return (
-      <Grid container justify="center">
-        <Card>
-          <CardHeader title={this.props.title} className="content__todo-list" />
-          <CardContent>
-            <List>
-              {this.props.items.map(item => (
-                <TodoElement
-                  key={item.id}
-                  item={item}
-                  canHaveDoneButton={this.props.canHaveDoneButton}
-                />
-              ))}
-            </List>
-          </CardContent>
-        </Card>
-      </Grid>
+      <Card className="content__todo-list">
+        <CardHeader title={this.props.title} />
+        <CardContent>
+          <List>
+            {this.props.items.map(item => (
+              <TodoElement
+                key={item.id}
+                item={item}
+                canHaveDoneButton={this.props.canHaveDoneButton}
+              />
+            ))}
+          </List>
+        </CardContent>
+      </Card>
     );
   }
 }

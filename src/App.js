@@ -33,22 +33,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Grid container justify="center" spacing={24} className="content">
-          <Grid item>
-            <TodoList
-              items={todoItems}
-              title="To do"
-              canHaveDoneButton={true}
-            />
-          </Grid>
-          <Grid item>
-            <TodoList
-              items={doneItems}
-              title="Done"
-              canHaveDoneButton={false}
-            />
-          </Grid>
-        </Grid>
+        <div className="todo-container content">
+          <TodoList items={todoItems} title="To do" canHaveDoneButton={true} />
+
+          <TodoList items={doneItems} title="Done" canHaveDoneButton={false} />
+        </div>
       </div>
     );
   }
