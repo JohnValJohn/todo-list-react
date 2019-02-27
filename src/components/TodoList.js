@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TodoElement from "./TodoElement";
-import { List, Grid, Card, CardHeader, CardContent } from "@material-ui/core";
+import { List, Card, CardHeader, CardContent } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 class TodoList extends Component {

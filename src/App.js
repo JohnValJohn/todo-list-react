@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import TodoList from "./components/TodoList";
 import Axios from "axios";
 import { partition } from "lodash";
-import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
-import { createTodos } from "./actions/actionCreators";
 import PropTypes from "prop-types";
 import "./App.css";
 
@@ -49,11 +47,15 @@ function mapStateToProps(state) {
   };
 }
 
+const mapDispatchToProps = dispatch => ({
+  createTodos: dispatch.todos.createTodos
+});
+
 App.propTypes = {
   items: PropTypes.array
 };
 
 export default connect(
   mapStateToProps,
-  { createTodos }
+  mapDispatchToProps
 )(App);

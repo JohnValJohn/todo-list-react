@@ -5,7 +5,6 @@ import {
   ListItemSecondaryAction
 } from "@material-ui/core";
 import { connect } from "react-redux";
-import { updateTodos } from "../actions/actionCreators";
 import PropTypes from "prop-types";
 
 import Button from "./Button.js";
@@ -38,7 +37,12 @@ TodoElement.propTypes = {
   canHaveDoneButton: PropTypes.bool,
   item: PropTypes.object
 };
+
+const mapDispatch = dispatch => ({
+  updateTodos: dispatch.todos.updateTodos
+});
+
 export default connect(
   undefined,
-  { updateTodos }
+  mapDispatch
 )(TodoElement);

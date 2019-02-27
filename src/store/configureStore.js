@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware } from "redux";
-import rootReducer from "../reducers/rootReducer";
-import thunk from "redux-thunk";
+import { init } from "@rematch/core";
+import * as models from "./models";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = init({ models });
+
 export default store;
