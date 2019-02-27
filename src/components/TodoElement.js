@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import {
   ListItem,
   ListItemText,
-  ListItemSecondaryAction,
-  Button
+  ListItemSecondaryAction
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import { updateTodos } from "../actions/actionCreators";
 import PropTypes from "prop-types";
+
+import Button from "./Button.js";
 
 class TodoElement extends Component {
   constructor(props) {
